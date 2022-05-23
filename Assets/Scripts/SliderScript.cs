@@ -7,7 +7,7 @@ public class SliderScript : MonoBehaviour
 {
     public Slider slider;
 
-    public void SetMaxValue(float value)
+    public void SetMaxValue(int value)
     {
         slider.maxValue = value;
         slider.value = value;

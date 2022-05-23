@@ -20,7 +20,7 @@ public class Clovek : MonoBehaviour
     public void Attack()
     {
         //play attack animation
-            anim.Play("Player Attack");
+        anim.Play("Player Attack");
         
     }
 }
