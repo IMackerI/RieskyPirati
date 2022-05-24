@@ -7,14 +7,18 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
     public enum State { ATTACK_1, ATTACK_2, WIN_1, WIN_2 };
 
-    public Entity Player1;
-    public Entity Player2;
-
+    public GameObject Player1;
+    public GameObject Player2;
+    Entity Player1Script;
+    Entity Player2Script;
+    
     State _state;
 
     public void Start()
     {
         instance = this;
+        Player1Script = Player1.GetComponent<Entity>();
+        Player2Script = Player2.GetComponent<Entity>();
         Switchstate(State.ATTACK_1);
     }
     
@@ -38,10 +42,10 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case State.ATTACK_1:
-                Player1.Attack();
+                Player1Script.Attack();
                 break;
             case State.ATTACK_2:
-                Player2.Attack();
+                Player2Script.Attack();
                 break;
             case State.WIN_1:
                 break;
@@ -57,7 +61,7 @@ public class GameManager : MonoBehaviour
         switch (_state)
         {
             case State.ATTACK_1:
-                if (Player2.Alive())
+                if (Player2Script.Alive())
                 {
                     Switchstate(State.ATTACK_2);
                 }
@@ -67,7 +71,7 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case State.ATTACK_2:
-                if (Player1.Alive())
+                if (Player1Script.Alive())
                 {
                     Switchstate(State.ATTACK_1);
                 }

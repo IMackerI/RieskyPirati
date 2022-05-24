@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    public Entity enemy;
-    public GameObject player;
+    public GameObject enemy;
     public SliderScript healthBar;
     public int maxHealth;
     public int health;
@@ -22,7 +21,7 @@ public class Entity : MonoBehaviour
 
     public void Attack()
     {
-        enemy.TakeDamage(damage);
+        enemy.GetComponent<Entity>().TakeDamage(damage);
         //play attack animation
     }
     public void TakeDamage(int dmg)

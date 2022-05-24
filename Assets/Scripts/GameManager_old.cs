@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,13 +25,13 @@ public class OldGameManager : MonoBehaviour
     bool _enemyTurn = false;
     bool _attacking = false;
 
-    /*
-    public void Start()
-    {
-        instance = this;
-        Switchstate(State.PLAY);
-    }
-    */
+    
+    //public void Start()
+    //{
+    //    instance = this;
+    //    Switchstate(State.PLAY);
+    //}
+    
 
     public void Switchstate(State newState, float delay = 0)
     {
@@ -167,3 +168,4 @@ public class OldGameManager : MonoBehaviour
     }
 
 }
+*/

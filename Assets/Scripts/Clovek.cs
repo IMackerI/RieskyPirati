@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Clovek : MonoBehaviour
 {
-    public GameObject enemy;
     public GameObject image;
-    public int health;
-    public int damage;
-    public int coins;
     Animation anim;
 
     // Update is called once per frame
