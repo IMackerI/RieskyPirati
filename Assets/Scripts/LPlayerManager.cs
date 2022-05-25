@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RightPlayer : MonoBehaviour
+public class LPlayerManager : MonoBehaviour
 {
+    public string health;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,18 @@ public class RightPlayer : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SetHealth(string health)
+    {
+        
+    }
+    public void SetAttack()
+    {
+
+    }
+    public void SetCoins()
+    {
+
     }
 }

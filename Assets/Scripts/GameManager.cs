@@ -7,10 +7,24 @@ public class GameManager : MonoBehaviour
     public enum State { /*MENU,*/ STAT, IDLE, LEFTATTACK, RIGHTATTACK, WIN, LOSE };
     State _state;
 
+    public GameObject menuScreen;
+    public GameObject statScreen;
+    public GameObject gameScreen;
+    public GameObject winScreen;
+    public GameObject loseScreen;
+
+    public GameObject lPlayerManager;
+    public GameObject rPlayerManager;
+    LPlayerManager lPlayer;
+    RPlayerManager rPlayer;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        lPlayer = lPlayerManager.GetComponent<LPlayerManager>();
+        rPlayer = rPlayerManager.GetComponent<RPlayerManager>();
     }
 
     public void Switchstate(State newState, float delay = 0)
@@ -40,4 +54,10 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void StatsPlay()
+    {
+        
+    }
+
 }
