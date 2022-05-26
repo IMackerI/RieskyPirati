@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour
         gameScreen.SetActive(false);
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
+        lPlayer.Summon();
+        rPlayer.Summon();
+        lPlayer.SetActive(false);
+        rPlayer.SetActive(false);
     }
 
     public void Switchstate(State newState, float delay = 0)
@@ -96,8 +100,18 @@ public class GameManager : MonoBehaviour
             case State.STAT:
                 statScreen.SetActive(false);
                 gameScreen.SetActive(true);
-                lPlayer.Summon();
-                rPlayer.Summon();
+                lPlayer.SetActive(true);
+                rPlayer.SetActive(true);
+                
+                lPlayer.SetMaxAttack(Mathf.Max(lPlayer.attack, rPlayer.attack));
+                rPlayer.SetMaxAttack(Mathf.Max(lPlayer.attack, rPlayer.attack));
+                lPlayer.SetAttack(lPlayer.attack);
+                rPlayer.SetAttack(rPlayer.attack);
+                lPlayer.SetMaxCoins(Mathf.Max(lPlayer.coins, rPlayer.coins));
+                rPlayer.SetMaxCoins(Mathf.Max(lPlayer.coins, rPlayer.coins));
+                lPlayer.SetCoins(lPlayer.coins);
+                rPlayer.SetCoins(rPlayer.coins);
+
                 break;
             case State.WIN:
                 winScreen.SetActive(false);
@@ -113,6 +127,8 @@ public class GameManager : MonoBehaviour
         lPlayer.Reset();
         rPlayer.Reset();
         lAttack = true;
+        lPlayer.Summon();
+        rPlayer.Summon();
     }
 
     public void MenuPlay(Button button)

@@ -14,6 +14,8 @@ public class RPlayerManager : MonoBehaviour
     public int coins = 100;
     public bool isDead = false;
 
+    PlayerDisplay playerDisplay;
+
     public void Reset()
     {
         Destroy(rPlayer);
@@ -25,10 +27,17 @@ public class RPlayerManager : MonoBehaviour
         isDead = false;
     }
 
+    public void SetActive(bool active)
+    {
+        rPlayer.SetActive(active);
+    }
+
     public void Summon()
     {
         rPlayer = Instantiate(rPlayerPrefab);
         isDead = false;
+        playerDisplay = rPlayer.GetComponent<PlayerDisplay>();
+        SetActive(false);
     }
 
     public void Attack()
@@ -39,6 +48,7 @@ public class RPlayerManager : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        SetHealth(health);
         if (health <= 0)
         {
             health = 0;
@@ -50,17 +60,29 @@ public class RPlayerManager : MonoBehaviour
     public void SetHealth(int newHealth)
     {
         health = newHealth;
+        playerDisplay.SetHealth(health);
     }
     public void SetMaxHealth(int newMaxHealth)
     {
         maxHealth = newMaxHealth;
+        playerDisplay.SetMaxHealth(maxHealth);
     }
     public void SetAttack(int newAttack)
     {
         attack = newAttack;
+        playerDisplay.SetAttack(attack);
+    }
+    public void SetMaxAttack(int newMaxAttack)
+    {
+        playerDisplay.SetMaxAttack(newMaxAttack);
     }
     public void SetCoins(int newCoins)
     {
         coins = newCoins;
+        playerDisplay.SetCoins(coins);
+    }
+    public void SetMaxCoins(int newMaxCoins)
+    {
+        playerDisplay.SetMaxCoins(newMaxCoins);
     }
 }

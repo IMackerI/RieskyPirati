@@ -15,6 +15,8 @@ public class LPlayerManager : MonoBehaviour
     public int coins = 100;
     public bool isDead = false;
 
+    PlayerDisplay playerDisplay;
+
     public void WinCoins()
     {
         GameObject winText = GameObject.Find("WinAmmount");
@@ -45,11 +47,18 @@ public class LPlayerManager : MonoBehaviour
         coins = 100;
         isDead = false;
     }
-    
+
+    public void SetActive(bool active)
+    {
+        lPlayer.SetActive(active);
+    }
+
     public void Summon()
     {
         lPlayer = Instantiate(lPlayerPrefab);
         isDead = false;
+        playerDisplay = lPlayer.GetComponent<PlayerDisplay>();
+        SetActive(false);
     }
 
     public void Attack()
@@ -60,6 +69,7 @@ public class LPlayerManager : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        SetHealth(health);
         if (health <= 0)
         {
             health = 0;
@@ -71,17 +81,29 @@ public class LPlayerManager : MonoBehaviour
     public void SetHealth(int newHealth)
     {
         health = newHealth;
+        playerDisplay.SetHealth(health);
     }
     public void SetMaxHealth(int newMaxHealth)
     {
         maxHealth = newMaxHealth;
+        playerDisplay.SetMaxHealth(maxHealth);
     }
     public void SetAttack(int newAttack)
     {
         attack = newAttack;
+        playerDisplay.SetAttack(attack);
+    }
+    public void SetMaxAttack(int newMaxAttack)
+    {
+        playerDisplay.SetMaxAttack(newMaxAttack);
     }
     public void SetCoins(int newCoins)
     {
         coins = newCoins;
+        playerDisplay.SetCoins(coins);
+    }
+    public void SetMaxCoins(int newMaxCoins)
+    {
+        playerDisplay.SetMaxCoins(newMaxCoins);
     }
 }
