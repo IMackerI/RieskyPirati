@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public enum State { /*MENU,*/ STAT, IDLE, LEFTATTACK, RIGHTATTACK, WIN, LOSE };
+    public enum State { MENU, STAT, IDLE, LEFTATTACK, RIGHTATTACK, WIN, LOSE };
     State _state;
 
     public GameObject menuScreen;
@@ -56,6 +56,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void StatsPlay()
+    {
+        
+    }
+
+    public void MenuPlay()
     {
         
     }
