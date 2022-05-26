@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public enum State { MENU, STAT, IDLE, LEFTATTACK, RIGHTATTACK, WIN, LOSE };
+    public enum State { MENU, STAT, IDLE, LEFTATTACK, RIGHTATTACK, WIN, LOSE};
     State _state;
 
     public GameObject menuScreen;
@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
     bool lAttack = true;
     public float attackDelay = 2f;
     public float endDelay = 1f;
-    public float resetDelay = 10f;
 
     void Start()
     {
@@ -76,13 +75,13 @@ public class GameManager : MonoBehaviour
                 gameScreen.SetActive(false);
                 winScreen.SetActive(true);
                 lPlayer.WinCoins();
-                Switchstate(State.MENU, resetDelay);
+                Reset();
                 break;
             case State.LOSE:
                 gameScreen.SetActive(false);
                 loseScreen.SetActive(true);
                 lPlayer.LoseCoins();
-                Switchstate(State.MENU, resetDelay);
+                Reset();
                 break;
         }
     }
@@ -107,6 +106,13 @@ public class GameManager : MonoBehaviour
                 loseScreen.SetActive(false);
                 break;
         }
+    }
+
+    void Reset()
+    {
+        lPlayer.Reset();
+        rPlayer.Reset();
+        lAttack = true;
     }
 
     public void MenuPlay(Button button)

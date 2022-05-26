@@ -14,9 +14,21 @@ public class RPlayerManager : MonoBehaviour
     public int coins = 100;
     public bool isDead = false;
 
+    public void Reset()
+    {
+        Destroy(rPlayer);
+
+        health = 100;
+        maxHealth = 100;
+        attack = 10;
+        coins = 100;
+        isDead = false;
+    }
+
     public void Summon()
     {
         rPlayer = Instantiate(rPlayerPrefab);
+        isDead = false;
     }
 
     public void Attack()

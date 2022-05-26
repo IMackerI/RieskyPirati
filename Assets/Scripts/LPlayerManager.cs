@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class LPlayerManager : MonoBehaviour
 {
     public GameObject lPlayerPrefab;
-    public GameObject enemy;
     public GameObject lPlayer;
+    public GameObject enemy;
 
     public int health = 100;
     public int maxHealth = 100;
@@ -24,11 +24,7 @@ public class LPlayerManager : MonoBehaviour
         coins += enemyCoins;
 
         winText.GetComponent<Text>().text = "" + coins;
-
-        Destroy(lPlayer);
-        Destroy(enemy.GetComponent<RPlayerManager>().rPlayer);
     }
-
     public void LoseCoins()
     {
         GameObject loseText = GameObject.Find("LoseAmmount");
@@ -37,14 +33,23 @@ public class LPlayerManager : MonoBehaviour
         coins = Mathf.Max(coins - enemyCoins, coins/2);
 
         loseText.GetComponent<Text>().text = "" + coins;
-
-        Destroy(lPlayer);
-        Destroy(enemy.GetComponent<RPlayerManager>().rPlayer);
     }
 
+    public void Reset()
+    {
+        Destroy(lPlayer);
+
+        health = 100;
+        maxHealth = 100;
+        attack = 10;
+        coins = 100;
+        isDead = false;
+    }
+    
     public void Summon()
     {
         lPlayer = Instantiate(lPlayerPrefab);
+        isDead = false;
     }
 
     public void Attack()
