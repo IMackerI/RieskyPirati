@@ -27,15 +27,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3902928017719651817}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000019836472}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3902928018703070056}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 44.91703, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -145}
+  m_AnchoredPosition: {x: 0, y: -140}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3902928017719651822
@@ -202,6 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3902928018547437880}
   - component: {fileID: 54211129081242622}
+  - component: {fileID: -7343982037247906074}
   m_Layer: 0
   m_Name: LeftPlayer
   m_TagString: Untagged
@@ -240,6 +241,22 @@ MonoBehaviour:
   HpSlider: {fileID: 6133416608323482678}
   AtkSlider: {fileID: 6133416608410572452}
   CoinsSlider: {fileID: 1324925854412500615}
+--- !u!111 &-7343982037247906074
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3902928018547437881}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 25b55404ec588044fb35f855eeb120de, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 25b55404ec588044fb35f855eeb120de, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &3902928018703070057
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class LPlayerManager : MonoBehaviour
     public int attack = 10;
     public int coins = 100;
     public bool isDead = false;
+    public float delay;
+    public float stretchRewardFunction;
 
     PlayerDisplay playerDisplay;
 
@@ -22,8 +24,7 @@ public class LPlayerManager : MonoBehaviour
         GameObject winText = GameObject.Find("WinAmmount");
         int enemyCoins = enemy.GetComponent<RPlayerManager>().coins;
 
-        //TODO fancy function
-        coins += enemyCoins;
+        coins += (int)(-System.Math.Tanh((float)((coins - enemyCoins) / (enemyCoins * stretchRewardFunction)-1.3f)) * enemyCoins + enemyCoins)/2;
 
         winText.GetComponent<Text>().text = "" + coins;
     }
@@ -70,13 +71,19 @@ public class LPlayerManager : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        SetHealth(health);
+        StartCoroutine(SetHealthDelay(health, delay));
         if (health <= 0)
         {
             health = 0;
             isDead = true;
         }
         Debug.Log("Health L: " + health);
+    }
+
+    IEnumerator SetHealthDelay(int health, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SetHealth(health);
     }
 
     public void SetHealth(int newHealth)

@@ -14,6 +14,8 @@ public class RPlayerManager : MonoBehaviour
     public int coins = 100;
     public bool isDead = false;
 
+    public float delay;
+
     PlayerDisplay playerDisplay;
 
     public void Reset()
@@ -49,13 +51,19 @@ public class RPlayerManager : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        SetHealth(health);
+        StartCoroutine(SetHealthDelay(health, delay));
         if (health <= 0)
         {
             health = 0;
             isDead = true;
         }
         Debug.Log("Health R: " + health);
+    }
+
+    IEnumerator SetHealthDelay(int health, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SetHealth(health);
     }
 
     public void SetHealth(int newHealth)

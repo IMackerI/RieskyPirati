@@ -466,6 +466,7 @@ MonoBehaviour:
   attack: 100
   coins: 100
   isDead: 0
+  delay: 0.9
 --- !u!1 &225757602
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,7 +875,7 @@ MonoBehaviour:
   loseScreen: {fileID: 1079292581}
   lPlayerManager: {fileID: 612830333}
   rPlayerManager: {fileID: 225097348}
-  attackDelay: 1
+  attackDelay: 3
   endDelay: 1
 --- !u!4 &459029262
 Transform:
@@ -1458,6 +1459,8 @@ MonoBehaviour:
   attack: 100
   coins: 100
   isDead: 0
+  delay: 0.9
+  stretchRewardFunction: 1
 --- !u!1 &645940144
 GameObject:
   m_ObjectHideFlags: 0
