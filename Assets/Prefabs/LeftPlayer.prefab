@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3902928017719651816}
   - component: {fileID: 3902928017719651822}
   - component: {fileID: 3902928017719651823}
+  - component: {fileID: 5334846491372009610}
   m_Layer: 5
   m_Name: LeftImg
   m_TagString: Untagged
@@ -31,7 +32,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3902928018703070056}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 44.91703, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -145}
@@ -75,6 +76,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!111 &5334846491372009610
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3902928017719651817}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 25b55404ec588044fb35f855eeb120de, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 25b55404ec588044fb35f855eeb120de, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &3902928017756833325
 GameObject:
   m_ObjectHideFlags: 0

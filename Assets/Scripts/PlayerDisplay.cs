@@ -19,6 +19,11 @@ public class PlayerDisplay : MonoBehaviour
     {
         HpSlider.value = health;
     }
+    public void Attack()
+    {
+        Animation anim = LImage.GetComponent<Animation>();
+        anim.Play();
+    }
     public void SetMaxAttack(int maxAttack)
     {
         AtkSlider.maxValue = maxAttack;

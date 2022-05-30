@@ -63,6 +63,7 @@ public class LPlayerManager : MonoBehaviour
 
     public void Attack()
     {
+        playerDisplay.Attack();
         enemy.GetComponent<RPlayerManager>().TakeDamage(attack);
     }
 
