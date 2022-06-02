@@ -16,6 +16,7 @@ public class LPlayerManager : MonoBehaviour
     public bool isDead = false;
     public float delay;
     public float stretchRewardFunction;
+    public float damageVariation;
 
     PlayerDisplay playerDisplay;
 
@@ -70,7 +71,7 @@ public class LPlayerManager : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        health -= (int)(Random.Range((1f - damageVariation) * damage, (1f + damageVariation) * damage));
         StartCoroutine(SetHealthDelay(health, delay));
         if (health <= 0)
         {

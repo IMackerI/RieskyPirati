@@ -15,6 +15,7 @@ public class RPlayerManager : MonoBehaviour
     public bool isDead = false;
 
     public float delay;
+    public float damageVariation;
 
     PlayerDisplay playerDisplay;
 
@@ -50,7 +51,7 @@ public class RPlayerManager : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        health -= (int)(Random.Range((1f - damageVariation) * damage, (1f + damageVariation) * damage));
         StartCoroutine(SetHealthDelay(health, delay));
         if (health <= 0)
         {
