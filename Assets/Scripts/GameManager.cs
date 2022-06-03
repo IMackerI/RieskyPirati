@@ -140,11 +140,13 @@ public class GameManager : MonoBehaviour
         health = int.Parse(GameObject.Find("Health" + i_clicked).GetComponent<Text>().text);
         attack = int.Parse(GameObject.Find("Attack" + i_clicked).GetComponent<Text>().text);
         coins = int.Parse(GameObject.Find("Coins" + i_clicked).GetComponent<Text>().text);;
+        Sprite image = GameObject.Find("Image" + i_clicked).GetComponent<Image>().sprite;
 
         rPlayer.SetHealth(health);
         rPlayer.SetMaxHealth(health);
         rPlayer.SetAttack(attack);
         rPlayer.SetCoins(coins);
+        rPlayer.SetImage(image);
 
         Switchstate(State.STAT);
     }

@@ -9,6 +9,7 @@ public class LPlayerManager : MonoBehaviour
     public GameObject lPlayer;
     public GameObject enemy;
 
+    public Sprite[ ] images;
     public int health = 100;
     public int maxHealth = 100;
     public int attack = 10;
@@ -60,6 +61,7 @@ public class LPlayerManager : MonoBehaviour
         lPlayer = Instantiate(lPlayerPrefab);
         isDead = false;
         playerDisplay = lPlayer.GetComponent<PlayerDisplay>();
+        //playerDisplay.SetImage(images[Random.Range(0, images.Length)]);
         SetActive(false);
     }
 
@@ -67,10 +69,12 @@ public class LPlayerManager : MonoBehaviour
     {
         playerDisplay.Attack();
         enemy.GetComponent<RPlayerManager>().TakeDamage(attack);
+        playerDisplay.SetCanvasLayer(1);
     }
 
     public void TakeDamage(int damage)
     {
+        playerDisplay.SetCanvasLayer(0);
         health -= (int)(Random.Range((1f - damageVariation) * damage, (1f + damageVariation) * damage));
         StartCoroutine(SetHealthDelay(health, delay));
         if (health <= 0)
@@ -87,6 +91,10 @@ public class LPlayerManager : MonoBehaviour
         SetHealth(health);
     }
 
+    public void SetImage(Sprite image)
+    {
+        playerDisplay.SetImage(image);
+    }
     public void SetHealth(int newHealth)
     {
         health = newHealth;

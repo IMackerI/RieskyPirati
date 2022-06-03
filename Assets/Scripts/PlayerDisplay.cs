@@ -9,7 +9,17 @@ public class PlayerDisplay : MonoBehaviour
     public Slider HpSlider;
     public Slider AtkSlider;
     public Slider CoinsSlider;
+    public Canvas canvas;
 
+
+    public void SetCanvasLayer(int layer)
+    {
+        canvas.GetComponent<Canvas>().sortingOrder = layer;
+    }
+    public void SetImage(Sprite image)
+    {
+        LImage.GetComponent<Image>().sprite = image;
+    }
     public void SetMaxHealth(int maxHealth)
     {
         HpSlider.maxValue = maxHealth;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RPlayerManager : MonoBehaviour
 {
@@ -47,10 +48,12 @@ public class RPlayerManager : MonoBehaviour
     {
         playerDisplay.Attack();
         enemy.GetComponent<LPlayerManager>().TakeDamage(attack);
+        playerDisplay.SetCanvasLayer(1);
     }
 
     public void TakeDamage(int damage)
     {
+        playerDisplay.SetCanvasLayer(0);
         health -= (int)(Random.Range((1f - damageVariation) * damage, (1f + damageVariation) * damage));
         StartCoroutine(SetHealthDelay(health, delay));
         if (health <= 0)
@@ -67,6 +70,10 @@ public class RPlayerManager : MonoBehaviour
         SetHealth(health);
     }
 
+    public void SetImage(Sprite image)
+    {
+        playerDisplay.SetImage(image);
+    }
     public void SetHealth(int newHealth)
     {
         health = newHealth;
