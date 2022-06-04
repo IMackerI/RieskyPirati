@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: "Rie\u0161ky Incorporated"
   productName: "Boje s pir\xE1tmi"
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: 4a9f22dcbe923d04fbec5ac42915a94b, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.16862746, g: 0.16862746, b: 0.16862746, a: 1}
   m_ShowUnitySplashScreen: 1
